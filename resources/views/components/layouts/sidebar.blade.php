@@ -19,7 +19,7 @@
 
             <div class="space-y-1">
                 @foreach ($menuItems as $item)
-                    <x-layouts.link-side :label="$item['label']" :hasDropdown="$item['hasDropdown']" :href="$item['href']">
+                    <x-layouts.link-side :label="$item['label']" :href="$item['href']">
                         <x-slot name="icon">{!! $item['icon'] !!}</x-slot>
                     </x-layouts.link-side>
                 @endforeach
@@ -29,30 +29,22 @@
         <div class="mt-8">
             <hr class="border-t border-gray-200 mb-4">
 
-            <p class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">OTHERS</p>
+            <p class="uppercase text-xs font-semibold text-gray-500 tracking-wider mb-2">MASTER DATA</p>
 
             <div class="space-y-1">
-                <a href="#"
-                    class="flex items-center px-4 py-2 text-sm text-gray-500 hover:bg-gray-100 transition-colors duration-200">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z">
-                        </path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    <span>Settings</span>
-                </a>
-
-                <x-layouts.link-side label="Support">
+                <x-layouts.link-side label="Sales">
                     <x-slot name="icon">
-                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14.752 11.168l-3.197 3.197m0 0v1.082a.5.5 0 00.866.413l1.83-1.054m-1.83 1.054L9.805 13.5m4.947 1.135a.5.5 0 00.5.5H18a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2h3.586a.5.5 0 00.354-.146z">
-                            </path>
-                        </svg>
+                        <x-asets.svg-person-geer></x-asets.svg-person-geer>
+                    </x-slot>
+                </x-layouts.link-side>
+                <x-layouts.link-side label="Inventory">
+                    <x-slot name="icon">
+                        <x-asets.svg-person-geer></x-asets.svg-person-geer>
+                    </x-slot>
+                </x-layouts.link-side>
+                <x-layouts.link-side label="Admin Gudang">
+                    <x-slot name="icon">
+                        <x-asets.svg-person-geer></x-asets.svg-person-geer>
                     </x-slot>
                 </x-layouts.link-side>
             </div>

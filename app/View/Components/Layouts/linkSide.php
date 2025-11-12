@@ -12,15 +12,13 @@ class linkSide extends Component
     public string $href;
     public $icon;
     public string $label;
-    public bool   $hasDropdown;
     public bool   $isActive;
 
-    public function __construct(string $href = '#', $icon = null, $label = '', $hasDropdown = false)
+    public function __construct(string $href = '#', $icon = null, $label = '')
     {
         $this->href = $href;
         $this->icon = $icon;
         $this->label = $label;
-        $this->hasDropdown = $hasDropdown;
         $this->isActive = $this->checkActive($href);
     }
 
