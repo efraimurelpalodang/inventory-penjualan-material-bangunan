@@ -1,17 +1,21 @@
 @extends('layout.app')
 @section('title', 'Dashboard')
 @section('content')
-    <div class="p-4 bg-gray-100 min-h-screen grid grid-cols-1 gap-3">
+    <x-layouts.header nama="Administrator" :breadcrumbs="[
+        ['name' => 'Home', 'url' => url('/dashboard')],
+        ['name' => 'Dashboard', 'url' => null, 'current' => true],
+    ]" />
+    <div class="p-4 bg-gray-100 min-h-screen grid grid-cols-1 gap-3 mt-16">
 
         <div class="p-6 bg-white rounded-xl border border-gray-100">
 
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h2 class="text-xl font-bold text-gray-800 flex items-center mb-1">
-                        <svg class="w-6 h-6 mr-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    <h2 class="text-xl font-bold text-gray-700 flex gap-2 items-center mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-person" viewBox="0 0 16 16">
+                            <path
+                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                         </svg>
                         Administrators
                     </h2>

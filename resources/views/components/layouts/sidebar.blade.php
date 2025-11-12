@@ -1,4 +1,4 @@
-<div class="flex flex-col w-64 bg-white h-screen shadow-lg fixed">
+<div class="flex flex-col w-64 bg-white h-screen fixed">
 
     <div class="p-4 flex items-center justify-between h-16 border-gray-300 mx-4 border-b">
         <div class="flex items-center">
@@ -19,7 +19,7 @@
 
             <div class="space-y-1">
                 @foreach ($menuItems as $item)
-                    <x-layouts.link-side label="{{ $item['label'] }}" :has-dropdown="$item['hasDropdown']">
+                    <x-layouts.link-side :label="$item['label']" :hasDropdown="$item['hasDropdown']" :href="$item['href']">
                         <x-slot name="icon">{!! $item['icon'] !!}</x-slot>
                     </x-layouts.link-side>
                 @endforeach
@@ -33,7 +33,7 @@
 
             <div class="space-y-1">
                 <a href="#"
-                    class="flex items-center px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 transition-colors duration-200">
+                    class="flex items-center px-4 py-2 text-sm text-gray-500 hover:bg-gray-100 transition-colors duration-200">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

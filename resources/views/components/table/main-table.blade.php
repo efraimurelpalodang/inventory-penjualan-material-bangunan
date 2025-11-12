@@ -1,7 +1,7 @@
 <div class="overflow-x-auto bg-white rounded-lg border border-gray-200 p-3">
 
     {{-- Header dan Search --}}
-    <div class="p-4 flex items-center justify-between border-b">
+    <div class="p-4 flex items-center justify-between border-b border-gray-200">
         <h3 class="text-lg font-semibold text-gray-700">Administrator Accounts</h3>
         <div class="flex items-center space-x-2">
             <input type="text" placeholder="Search..."
