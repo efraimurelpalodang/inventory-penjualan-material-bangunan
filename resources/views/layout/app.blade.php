@@ -8,9 +8,12 @@
   <title>@yield('title')</title>
 </head>
 <body>
-  <x-layouts.sidebar></x-layouts.sidebar>
-  @yield('content')
-  
+  <div class="grid grid-cols-5 overflow-x-hidden">
+    <x-layouts.sidebar></x-layouts.sidebar>
+    <main class="col-span-4 col-start-2">
+      @yield('content')
+    </main>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </body>
 </html>
