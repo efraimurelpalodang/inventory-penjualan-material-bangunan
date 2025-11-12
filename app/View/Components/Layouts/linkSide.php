@@ -24,12 +24,15 @@ class linkSide extends Component
 
     private function checkActive($href): bool
     {
-        if (Route::has($href) && request()->routeIs($href)) {
-            return true;
+        $current = request()->path();
+
+        if (Route::has($href)) {
+            return request()->routeIs($href);
         }
 
-        return request()->is(trim($href, '/'));
+        return $current === trim($href, '/');
     }
+
 
     /**
      * Get the view / contents that represent the component.
