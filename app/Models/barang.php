@@ -3,8 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class barang extends Model
 {
-    //
+    protected $fillable = ['satuan_id','kode','nama_barang','harga_jual','jumlah_stok'];
+
+    public function satuan(): BelongsTo
+    {
+        return $this->belongsTo(satuan::class);
+    }
 }

@@ -23,7 +23,7 @@ return new class extends Migration
             );
             $table->date('tanggal_keluar');
             $table->enum('asal_transaksi', ['penjualan','rusak']);
-            $table->text('keterangan');
+            $table->text('keterangan')->nullable();
             $table->timestamps();
         });
     }
