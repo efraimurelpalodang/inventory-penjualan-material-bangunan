@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('satuans', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 15);
-            $table->string('deskripsi', 30);
+            $table->string('deskripsi', 50);
             $table->timestamps();
         });
     }
