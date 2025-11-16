@@ -9,49 +9,45 @@ export default defineConfig({
             refresh: true,
         }),
         tailwindcss({
+            content: [
+                "./resources/**/*.blade.php",
+                "./resources/**/*.js",
+                "./resources/**/*.vue",
+            ],
             theme: {
                 extend: {
                     colors: {
-                        background: {
-                            DEFAULT: "#F9FAFB", 
-                            light: "#FFFFFF", 
-                            border: "#E5E7EB", 
-                            input: "#F3F4F6", 
-                        },
-
-                        text: {
-                            DEFAULT: "#111827", 
-                            secondary: "#6B7280", 
-                            muted: "#9CA3AF",
-                            link: "#2563EB",
-                        },
-
-                        // Aksen & Status
-                        state: {
-                            active: "#22C55E", 
-                            disabled: "#9CA3AF", 
-                            full: "#3B82F6", 
-                            limited: "#6B7280",
-                            readonly: "#FBBF24", 
-                        },
-
-                        // Tombol & Ikon
-                        button: {
-                            primary: "#3B82F6",
-                            primaryHover: "#2563EB", 
-                            text: "#FFFFFF",
-                        },
-                        icon: {
-                            green: "#16A34A",
-                            gray: "#9CA3AF",
-                        },
-
-                        // Sidebar Highlight
-                        sidebar: {
-                            activeBg: "#E0F2FE",
-                            activeText: "#1E3A8A",
-                            logoBg: "#1E3A8A",
-                        },
+                        primary: "#5D87FF",
+                        secondary: "#49BEFF",
+                        success: "#13DEB9",
+                        info: "#539BFF",
+                        warning: "#FFAE1F",
+                        danger: "#FA896B",
+                        dark: "#2A3547",
+                        muted: "#5A6A85",
+                        white: "#ffffff",
+                        sidebarText: "#5A6A85",
+                        light: "#F6F9FC",
+                    },
+                    spacing: {
+                        sidebarX: "16px",
+                        headerH: "80px", 
+                        sidebarW: "260px", 
+                    },
+                    borderRadius: {
+                        sidebar: "7px", 
+                    },
+                    boxShadow: {
+                        card: "0px 0px 2px rgba(145,158,171,0.20), 0px 12px 24px -4px rgba(145,158,171,0.12)",
+                    },
+                    fontSize: {
+                        10: "10px",
+                        12: "12px",
+                        14: "14px",
+                        16: "16px",
+                        18: "18px",
+                        20: "20px",
+                        30: "30px",
                     },
                 },
             },
