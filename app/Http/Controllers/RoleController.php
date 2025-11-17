@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\role;
 use SweetAlert2\Laravel\Swal;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -39,12 +40,18 @@ class RoleController extends Controller
 
     public function destroy($id)
     {
-        role::destroy($id);
-
-        Swal::success([
-            'title' => 'Berhasil!',
-            'text'  => 'Data peran berhasil dihapus.',
-        ]);
+        try {
+            role::destroy($id);
+            Swal::success([
+                'title' => 'Berhasil!',
+                'text'  => 'Data peran berhasil dihapus.',
+            ]);
+        } catch (QueryException $e) {
+            Swal::error([
+                'title' => 'Oops...',
+                'text'  => 'Data peran tidak dapat dihapus karna data pengguna menggunakan peran ini',
+            ]);
+        }
 
         return redirect('/peran');
     }
