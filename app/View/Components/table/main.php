@@ -10,11 +10,13 @@ class Main extends Component
 {
     public $title;
     public $headers;
+    public $routeCreate;
 
-    public function __construct($title, $headers = [])
+    public function __construct($title, $headers = [], $routeCreate = null)
     {
         $this->title = $title;
         $this->headers = $headers;
+        $this->routeCreate = $routeCreate;
     }
 
     /**

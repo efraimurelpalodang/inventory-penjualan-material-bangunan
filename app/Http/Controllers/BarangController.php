@@ -21,9 +21,10 @@ class BarangController extends Controller
                 'stok' => $item->jumlah_stok,
                 'satuan' => $item->satuan->nama,
                 'action' => [
-                    ['label' => 'Edit',
-                    'url' => '/barang/edit/'.$item->id,
-                    'method' => 'GET',
+                    [
+                        'label' => 'Edit',
+                        'url' => '/barang/edit/'.$item->id,
+                        'method' => 'GET',
                     ],
                     [
                         'label' => 'Hapus',
@@ -39,6 +40,11 @@ class BarangController extends Controller
         return view('dashboard.barang', [
             'barang' => $rows
         ]);
+    }
+
+    public function create()
+    {
+        return view('dashboard.tambah');
     }
 
     public function destroy($id)

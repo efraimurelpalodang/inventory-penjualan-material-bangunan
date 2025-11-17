@@ -1,7 +1,12 @@
 <div class="d-flex align-items-stretch">
     <div class="card w-100">
         <div class="card-body p-4">
-            <h5 class="card-title fw-semibold mb-4">{{ $title }}</h5>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="card-title fw-semibold mb-0">Daftar {{ $title }}</h5>
+                <a href="{{ $routeCreate }}" class="btn btn-primary btn-sm">
+                    + Data {{ $title }}
+                </a>
+            </div>
             <div class="table-responsive">
                 <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
