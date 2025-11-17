@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class barang extends Model
 {
+    protected $table = 'barangs';
     protected $fillable = ['satuan_id','kode','nama_barang','harga_jual','jumlah_stok'];
 
     public function satuan(): BelongsTo

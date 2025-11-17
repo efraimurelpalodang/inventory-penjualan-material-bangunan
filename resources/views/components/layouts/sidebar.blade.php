@@ -33,15 +33,15 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                    <a class="sidebar-link" href="/satuan" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
-                        <span class="hide-menu">Kategori</span>
+                        <span class="hide-menu">Satuan</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                    <a class="sidebar-link" href="/peran" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>

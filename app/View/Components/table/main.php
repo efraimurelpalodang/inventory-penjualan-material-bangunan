@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\table;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class Main extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $title;
+    public $headers;
+
+    public function __construct($title, $headers = [])
     {
-        //
+        $this->title = $title;
+        $this->headers = $headers;
     }
 
     /**
