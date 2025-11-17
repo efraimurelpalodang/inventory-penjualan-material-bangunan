@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\role;
+use SweetAlert2\Laravel\Swal;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -17,12 +18,15 @@ class RoleController extends Controller
                 'action' => [
                     [
                         'label' => 'Edit',
-                    // 'url' => route('barang.edit', $item->id) // Asumsi route untuk edit
+                        'method' => 'GET',
+                        'url' => 'peran/edit/'.$item->id, 
                     ],
                     [
                         'label' => 'Hapus',
                         'color' => 'danger',
-                    // 'url' => route('barang.edit', $item->id) // Asumsi route untuk edit
+                        'method' => 'DELETE',
+                        'url' => 'peran/hapus/'.$item->id, 
+                        'confirm' => 'confirmSwal(event, this)',
                     ],
                 ]
             ];
@@ -31,5 +35,17 @@ class RoleController extends Controller
         return view('dashboard.role', [
             'roles' => $rows
         ]);
+    }
+
+    public function destroy($id)
+    {
+        role::destroy($id);
+
+        Swal::success([
+            'title' => 'Berhasil!',
+            'text'  => 'Data peran berhasil dihapus.',
+        ]);
+
+        return redirect('/peran');
     }
 }

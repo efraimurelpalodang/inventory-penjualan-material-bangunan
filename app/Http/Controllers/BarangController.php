@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\barang;
+use SweetAlert2\Laravel\Swal;
 
 class BarangController extends Controller
 {
@@ -21,12 +22,15 @@ class BarangController extends Controller
                 'satuan' => $item->satuan->nama,
                 'action' => [
                     ['label' => 'Edit',
-                    // 'url' => route('barang.edit', $item->id) // Asumsi route untuk edit
+                    'url' => '/barang/edit/'.$item->id,
+                    'method' => 'GET',
                     ],
                     [
                         'label' => 'Hapus',
                         'color' => 'danger',
-                    // 'url' => route('barang.edit', $item->id) // Asumsi route untuk edit
+                        'url' => '/barang/hapus/'.$item->id,
+                        'method' => 'DELETE',
+                        'confirm' => 'confirmSwal(event, this)',
                     ],
                 ]
             ];
@@ -36,4 +40,17 @@ class BarangController extends Controller
             'barang' => $rows
         ]);
     }
+
+    public function destroy($id)
+    {
+        barang::destroy($id);
+
+        Swal::success([
+            'title' => 'Berhasil!',
+            'text'  => 'Data barang berhasil dihapus.',
+        ]);
+
+        return redirect('/barang');
+    }
+
 }

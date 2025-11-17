@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\satuan;
+use SweetAlert2\Laravel\Swal;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class SatuanController extends Controller
@@ -17,12 +19,15 @@ class SatuanController extends Controller
                 'action' => [
                     [
                         'label' => 'Edit',
-                    // 'url' => route('barang.edit', $item->id) // Asumsi route untuk edit
+                        'method' => 'PUT',
+                        'url' => '/satuan/edit/'.$item->id 
                     ],
                     [
                         'label' => 'Hapus',
                         'color' => 'danger',
-                    // 'url' => route('barang.edit', $item->id) // Asumsi route untuk edit
+                        'method' => 'DELETE',
+                        'url' => '/satuan/hapus/'.$item->id,
+                        'confirm' => 'confirmSwal(event, this)',
                     ],
                 ]
             ];
@@ -31,5 +36,23 @@ class SatuanController extends Controller
         return view('dashboard.satuan', [
             'satuan' => $rows 
         ]);
+    }
+
+    public function destroy($id)
+    {
+        try {
+            satuan::destroy($id);
+            Swal::success([
+                'title' => 'Berhasil!',
+                'text'  => 'Data satuan berhasil dihapus.',
+            ]);
+        } catch (QueryException $e) {
+            Swal::error([
+                'title' => 'Oops...',
+                'text'  => 'Data satuan tidak dapat dihapus karna data barang menggunakan satuan ini',
+            ]);
+        }
+
+        return redirect('/satuan');
     }
 }
