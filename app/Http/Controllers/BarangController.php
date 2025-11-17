@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\barang;
+use App\Models\satuan;
 use SweetAlert2\Laravel\Swal;
 
 class BarangController extends Controller
@@ -44,7 +45,10 @@ class BarangController extends Controller
 
     public function create()
     {
-        return view('dashboard.tambah');
+        $satuans = satuan::all();
+        return view('dashboard.tambah', [
+            'satuans' => $satuans
+        ]);
     }
 
     public function destroy($id)
