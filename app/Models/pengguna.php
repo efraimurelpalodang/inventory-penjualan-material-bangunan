@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class pengguna extends Model
 {
+    use HasFactory;
+
     protected $fillable = ['role_id','username','password','nama_pengguna','jk','telp'];
 
     public function bk(): HasMany

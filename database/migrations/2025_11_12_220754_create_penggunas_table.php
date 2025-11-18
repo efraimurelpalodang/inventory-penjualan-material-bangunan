@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password', 100);
             $table->string('nama_pengguna', 80);
             $table->enum('jk', ['L','P']);
-            $table->string('telp', 15);
+            $table->string('telp', 25);
             $table->timestamps();
         });
     }

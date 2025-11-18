@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SatuanController;
 use Illuminate\Support\Facades\Route;
@@ -14,3 +15,4 @@ Route::get('/dashboard', function () {
 Route::resource('barang', BarangController::class); 
 Route::resource('satuan', SatuanController::class); 
 Route::resource('role', RoleController::class); 
+Route::resource('pengguna', PenggunaController::class); 

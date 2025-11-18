@@ -31,7 +31,7 @@ class BarangController extends Controller
                         'color'   => 'danger',
                         'url'     => route('barang.destroy', $item),
                         'method'  => 'DELETE',
-                        'confirm' => "confirmSwal(event, this, 'Yakin hapus {$item->nama_barang}?')",
+                        'confirm' => "confirmSwal(event, this)",
                     ],
                 ]
             ];
