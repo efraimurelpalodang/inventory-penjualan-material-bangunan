@@ -33,7 +33,7 @@ class SatuanController extends Controller
             ];
         })->toArray();
 
-        return view('dashboard.satuan', [
+        return view('dashboard.satuan.index', [
             'satuan' => $rows 
         ]);
     }

@@ -33,7 +33,7 @@ class RoleController extends Controller
             ];
         })->toArray();
 
-        return view('dashboard.role', [
+        return view('dashboard.role.index', [
             'roles' => $rows
         ]);
     }
