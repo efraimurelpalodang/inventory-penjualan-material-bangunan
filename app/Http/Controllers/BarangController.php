@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\barang\StoreBarangRequest;
 use App\Models\barang;
 use App\Models\satuan;
 use SweetAlert2\Laravel\Swal;
@@ -51,13 +52,23 @@ class BarangController extends Controller
         ]);
     }
 
+    public function store(StoreBarangRequest $request)
+    {
+        barang::create($request->validated());
+        Swal::success([
+            'title' => 'Berhasil!',
+            'text'  => 'Data barang berhasil ditambahkan',
+        ]);
+        return redirect('/barang');
+    }
+
     public function destroy($id)
     {
         barang::destroy($id);
 
         Swal::success([
             'title' => 'Berhasil!',
-            'text'  => 'Data barang berhasil dihapus.',
+            'text'  => 'Data barang berhasil dihapus',
         ]);
 
         return redirect('/barang');

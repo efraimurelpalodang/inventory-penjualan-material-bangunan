@@ -1,4 +1,3 @@
-<!-- resources/views/components/form/form.blade.php -->
 <form 
     {{ $attributes->merge(['class' => 'needs-validation']) }}
     action="{{ $action ?? '#' }}" 
@@ -14,7 +13,8 @@
         {{ $slot }}
     </div>
 
-    <div class="mt-4">
+    <div class="mt-4 d-flex gap-2">
+        <a href="{{ $back }}" class="btn btn-secondary">Kembali</a>
         <button type="submit" class="btn btn-primary">
             {{ $buttonText ?? 'Simpan' }}
         </button>

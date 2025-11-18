@@ -13,6 +13,7 @@ Route::get('/dashboard', function () {
 });
 Route::get('/barang', [BarangController::class, 'index']);
 Route::get('/barang/tambah', [BarangController::class, 'create']);
+Route::get('/barang/store', [BarangController::class, 'store']);
 Route::delete('/barang/hapus/{id}', [BarangController::class, 'destroy']);
 Route::get('/satuan', [SatuanController::class, 'index']);
 Route::delete('/satuan/hapus/{id}', [SatuanController::class, 'destroy']);

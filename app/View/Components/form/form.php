@@ -11,12 +11,14 @@ class form extends Component
     public string $action;
     public string $method;
     public string $buttonText;
+    public string $back;
     
-    public function __construct(string $action = '', string $method = '', string $buttonText = '')
+    public function __construct(string $action = '', string $method = '', string $buttonText = '', string $back = '')
     {
         $this->action = $action;
         $this->method = $method;
         $this->buttonText = $buttonText;
+        $this->back = $back;
     }
 
     /**
