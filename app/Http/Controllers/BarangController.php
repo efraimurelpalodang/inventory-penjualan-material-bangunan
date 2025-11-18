@@ -39,7 +39,7 @@ class BarangController extends Controller
             ];
         })->toArray();
 
-        return view('dashboard.barang', [
+        return view('dashboard.barang.index', [
             'barang' => $rows
         ]);
     }
@@ -47,7 +47,7 @@ class BarangController extends Controller
     public function create()
     {
         $satuans = satuan::all();
-        return view('dashboard.tambah', [
+        return view('dashboard.barang.tambah', [
             'satuans' => $satuans
         ]);
     }
