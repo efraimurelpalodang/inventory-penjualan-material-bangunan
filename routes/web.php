@@ -14,6 +14,8 @@ Route::get('/dashboard', function () {
 Route::get('/barang', [BarangController::class, 'index']);
 Route::get('/barang/tambah', [BarangController::class, 'create']);
 Route::get('/barang/store', [BarangController::class, 'store']);
+Route::get('/barang/edit/{id}', [BarangController::class, 'edit']);
+Route::get('/barang/update', [BarangController::class, 'update']);
 Route::delete('/barang/hapus/{id}', [BarangController::class, 'destroy']);
 Route::get('/satuan', [SatuanController::class, 'index']);
 Route::delete('/satuan/hapus/{id}', [SatuanController::class, 'destroy']);

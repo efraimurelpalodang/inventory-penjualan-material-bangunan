@@ -61,6 +61,13 @@ class BarangController extends Controller
         return redirect('/barang');
     }
 
+    public function edit($id)
+    {
+        $satuans = satuan::all();
+        $barang = barang::findOrFail($id);
+        return view('dashboard.barang.update', compact(['barang','satuans']));
+    }
+
     public function destroy($id)
     {
         barang::destroy($id);
