@@ -5,7 +5,7 @@
     </label>
 
     <input type="{{ $type ?? 'text' }}" name="{{ $name }}" id="{{ $id ?? $name }}"
-        class="form-control @error($name) is-invalid @enderror" value="{{ old($name) }}"
+        class="form-control @error($name) is-invalid @enderror" value="{{ old($name, $value) }}"
         placeholder="{{ $placeholder ?? '' }}" {{ $required ? 'required' : '' }} autocomplete="{{ $autoComplate }}">
 
     @error($name)

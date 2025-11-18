@@ -5,10 +5,9 @@
         <div class="card-body">
             <h4 class="card-title pb-3">Edit Barang</h4>
 
-            <x-form.form action="/barang/store" buttonText="Edit Barang" class="p-2 p-md-2" back="/barang">
-
+            <x-form.form :action="route('barang.update', $barang)" method="PUT" buttonText="Update Barang" back="/barang">
                 <div class="col-md-6">
-                    <x-form.input name="kode" label="Kode Barang" :value="old('kode')" :required="true" id="kode"
+                    <x-form.input name="kode" label="Kode Barang" :value="$barang->kode" :required="true" id="kode"
                         placeholder="Masukkan kode barang" class="{{ $errors->has('kode') ? 'is-invalid' : '' }}" />
                     @if ($errors->has('kode'))
                         <div class="invalid-feedback">
@@ -19,24 +18,25 @@
 
                 <div class="col-md-6">
                     <x-form.input name="nama_barang" label="Nama Barang" placeholder="Masukkan nama barang"
-                        :required="true" id="nama" />
+                        :value="$barang->nama_barang" :required="true" id="nama" />
                 </div>
 
                 <div class="col-md-3">
                     <x-form.input name="harga_jual" type="number" label="Harga" placeholder="Masukkan harga"
-                        :required="true" id="harga" />
+                        :value="$barang->harga_jual" :required="true" id="harga" />
                 </div>
 
                 <div class="col-md-3">
                     <x-form.input name="jumlah_stok" type="number" label="Stok Barang" placeholder="Masukkan stok barang"
-                        :required="true" id="harga" />
+                        :value="$barang->jumlah_stok" :required="true" id="harga" />
                 </div>
 
                 <div class="col-md-6">
                     <x-form.select name="satuan_id" label="Satuan" :required="true">
                         <option value="">Pilih Satuan</option>
                         @foreach ($satuans as $s)
-                            <option value="{{ $s->id }}" {{ old('satuan_id') == $s->id ? 'selected' : '' }}>
+                            <option value="{{ $s->id }}"
+                                {{ old('satuan_id', $barang->satuan_id) == $s->id ? 'selected' : '' }}>
                                 {{ $s->nama }}
                             </option>
                         @endforeach

@@ -1,11 +1,11 @@
-<form 
+<form
     {{ $attributes->merge(['class' => 'needs-validation']) }}
-    action="{{ $action ?? '#' }}" 
-    method="{{ $method ?? 'POST' }}" 
+    action="{{ $action ?? '#' }}"
+    method="POST"            
     novalidate
 >
     @csrf
-    @if (in_array(strtoupper($method ?? 'POST'), ['PUT', 'PATCH', 'DELETE']))
+    @if ($method && in_array(strtoupper($method), ['PUT', 'PATCH', 'DELETE']))
         @method($method)
     @endif
 

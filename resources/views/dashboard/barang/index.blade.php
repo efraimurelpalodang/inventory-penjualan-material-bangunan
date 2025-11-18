@@ -3,7 +3,7 @@
     <x-table.main 
         title="Barang" 
         :headers="['Kode', 'Nama Barang', 'Harga Jual', 'Stok Barang', 'Satuan', 'Aksi']" 
-        routeCreate="/barang/tambah"
+        :routeCreate="route('barang.create')"
     >
         @foreach ($barang as $row)
             <x-table.row :rowData="$row" />

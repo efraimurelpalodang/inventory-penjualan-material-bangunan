@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\barang\StoreBarangRequest;
+use App\Http\Requests\barang\UpdateBarangRequest;
 use App\Models\barang;
 use App\Models\satuan;
 use SweetAlert2\Laravel\Swal;
@@ -23,13 +24,13 @@ class BarangController extends Controller
                 'action'      => [
                     [
                         'label'  => 'Edit',
-                        'url'    => '/barang/edit/' . $item->id,
+                        'url'    => route('barang.edit', $item),
                         'method' => 'GET',
                     ],
                     [
                         'label'   => 'Hapus',
                         'color'   => 'danger',
-                        'url'     => '/barang/hapus/' . $item->id,
+                        'url'     => route('barang.destroy', $item),
                         'method'  => 'DELETE',
                         'confirm' => "confirmSwal(event, this, 'Yakin hapus {$item->nama_barang}?')",
                     ],
@@ -37,7 +38,6 @@ class BarangController extends Controller
             ];
         })->toArray();
 
-        // Ganti collection dengan array yang sudah di-map
         $barang->setCollection(collect($rows));
 
         return view('dashboard.barang.index', compact('barang'));
@@ -66,6 +66,20 @@ class BarangController extends Controller
         $satuans = satuan::all();
         $barang = barang::findOrFail($id);
         return view('dashboard.barang.update', compact(['barang','satuans']));
+    }
+
+    public function update(UpdateBarangRequest $request, barang $barang)
+    {
+        $id = $barang->id;
+        $barang = barang::findOrFail($id);
+
+        Swal::success([
+            'title' => 'Berhasil!',
+            'text'  => 'Data barang berhasil diubah',
+        ]);
+
+        $barang->update($request->validated());
+        return redirect('/barang');
     }
 
     public function destroy($id)

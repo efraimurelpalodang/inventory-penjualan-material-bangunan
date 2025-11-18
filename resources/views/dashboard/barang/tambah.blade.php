@@ -5,7 +5,7 @@
         <div class="card-body">
             <h4 class="card-title pb-3">Tambah Barang</h4>
 
-            <x-form.form action="/barang/store" buttonText="Tambah Barang" class="p-2 p-md-2" back="/barang" >
+            <x-form.form :action="route('barang.store')" buttonText="Tambah Barang" class="p-2 p-md-2" back="/barang" >
 
                 <div class="col-md-6">
                     <x-form.input name="kode" label="Kode Barang" :value="old('kode')" :required="true" id="kode" placeholder="Masukkan kode barang"

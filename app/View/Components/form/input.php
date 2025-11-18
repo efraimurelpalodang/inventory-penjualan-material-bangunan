@@ -9,18 +9,30 @@ use Illuminate\View\Component;
 class input extends Component
 {
     public string $name;
-    public string $id;
     public string $label;
-    public string $placeholder;
-    public $required;
-    public string $message;
+    public ?string $id;
+    public ?string $placeholder;
+    public ?bool $required;
+    public ?string $message;
     public string $autoComplate;
+    public $value;
+    public string $type;
 
-    public function __construct(string $name, string $id, string $label, string $placeholder = '', $required = null, string $message ='', $autoComplate = 'off')
+    public function __construct(string $name,
+        string $label = '',
+        string $type = 'text',
+        $value = null,
+        $id = null,
+        string $placeholder = '',
+        $required = false,
+        string $message ='',
+        string $autoComplate = 'off')
     {
         $this->name = $name;
-        $this->id = $id ?? $name;
         $this->label = $label;
+        $this->type = $type;
+        $this->value = $value;
+        $this->id = $id ?? $name;
         $this->placeholder = $placeholder;
         $this->required = $required;
         $this->message = $message;
