@@ -12,8 +12,6 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 });
 Route::resource('barang', BarangController::class); 
-Route::delete('/barang/hapus/{id}', [BarangController::class, 'destroy']);
-Route::get('/satuan', [SatuanController::class, 'index']);
-Route::delete('/satuan/hapus/{id}', [SatuanController::class, 'destroy']);
+Route::resource('satuan', SatuanController::class); 
 Route::get('/peran', [RoleController::class, 'index']);
 Route::delete('/peran/hapus/{id}', [RoleController::class, 'destroy']);

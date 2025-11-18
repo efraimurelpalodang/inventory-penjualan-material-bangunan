@@ -13,7 +13,6 @@ class BarangController extends Controller
     public function index()
     {
         $barang = Barang::with('satuan')->paginate(7);
-
         $rows = $barang->getCollection()->map(function ($item) {
             return [
                 'kode'        => $item->kode,
@@ -61,24 +60,23 @@ class BarangController extends Controller
         return redirect('/barang');
     }
 
-    public function edit($id)
+    public function edit(barang $barang)
     {
         $satuans = satuan::all();
-        $barang = barang::findOrFail($id);
-        return view('dashboard.barang.update', compact(['barang','satuans']));
+        return view('dashboard.barang.edit', compact(['barang','satuans']));
     }
 
     public function update(UpdateBarangRequest $request, barang $barang)
     {
         $id = $barang->id;
         $barang = barang::findOrFail($id);
-
+        $barang->update($request->validated());
+        
         Swal::success([
             'title' => 'Berhasil!',
             'text'  => 'Data barang berhasil diubah',
         ]);
 
-        $barang->update($request->validated());
         return redirect('/barang');
     }
 

@@ -43,7 +43,8 @@
             Swal.fire({
                 title: 'Apakah Anda Yakin?',
                 text: 'Data akan hilang permanen!',
-                icon: 'warning',
+                // icon: 'warning',
+                icon: 'question',
                 confirmButtonColor: "#3085d6",
                 showCancelButton: true,
                 confirmButtonText: 'Ya',
