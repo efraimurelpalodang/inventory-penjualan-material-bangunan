@@ -13,5 +13,4 @@ Route::get('/dashboard', function () {
 });
 Route::resource('barang', BarangController::class); 
 Route::resource('satuan', SatuanController::class); 
-Route::get('/peran', [RoleController::class, 'index']);
-Route::delete('/peran/hapus/{id}', [RoleController::class, 'destroy']);
+Route::resource('role', RoleController::class); 

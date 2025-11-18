@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\satuan;
+namespace App\Http\Requests\role;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSatuanRequest extends FormRequest
+class StoreRoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class StoreSatuanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => 'required|unique:satuans,nama|string|max:15',
+            'nama_peran' => 'required|unique:roles,nama_peran|max:15',
             'deskripsi' => 'required|max:50'
         ];
     }
@@ -30,12 +30,11 @@ class StoreSatuanRequest extends FormRequest
     public function messages()
     {
         return [
-            'nama.required' => 'nama satuan tidak boleh kosong',
-            'nama.uniq' => 'satuan sudah digunakan',
-            'nama.string' => 'nama satuan tidak boleh mengandung angka',
-            'nama.max' => 'nama satuan tidak boleh lebih dari 15 huruf',
-            'deskripsi.required' => 'deskripsi satuan tidak boleh kosong',
-            'deskripsi.max' => 'deskripsi tidak boleh lebih dari 50 huruf',
+            'nama_peran.required' => 'Peran tidak boleh kosong',
+            'nama_peran.unique' => 'Peran sudah digunakan',
+            'nama_peran.max' => 'Peran tidak boleh lebih dari 15 huruf',
+            'deskripsi.required' => 'Deskripsi peran tidak boleh kosong',
+            'deskripsi.max' => 'Deskripsi tidak boleh lebih dari 50 huruf',
         ];
     }
 }

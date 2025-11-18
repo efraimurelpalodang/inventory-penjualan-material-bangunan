@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\satuan;
+namespace App\Http\Requests\role;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateSatuanRequest extends FormRequest
+class UpdateRoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,11 @@ class UpdateSatuanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => [
+            'nama_peran' => [
                 'required',
                 'string',
                 'max:15',
-                Rule::unique('satuans', 'nama')->ignore($this->satuan->id),
+                Rule::unique('roles', 'nama_peran')->ignore($this->role->id),
             ],
             'deskripsi' => 'required|max:50'
         ];
@@ -36,12 +36,11 @@ class UpdateSatuanRequest extends FormRequest
     public function messages()
     {
         return [
-            'nama.required' => 'nama satuan tidak boleh kosong',
-            'nama.uniq' => 'satuan sudah digunakan',
-            'nama.string' => 'nama satuan tidak boleh mengandung angka',
-            'nama.max' => 'nama satuan tidak boleh lebih dari 15 huruf',
-            'deskripsi.required' => 'deskripsi satuan tidak boleh kosong',
-            'deskripsi.max' => 'deskripsi tidak boleh lebih dari 50 huruf',
+            'nama_peran.required' => 'Peran tidak boleh kosong',
+            'nama_peran.unique' => 'Peran sudah digunakan',
+            'nama_peran.max' => 'Peran tidak boleh lebih dari 15 huruf',
+            'deskripsi.required' => 'Deskripsi peran tidak boleh kosong',
+            'deskripsi.max' => 'Deskripsi tidak boleh lebih dari 50 huruf',
         ];
     }
 }

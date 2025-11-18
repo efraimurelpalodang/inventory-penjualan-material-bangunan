@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/peran" aria-expanded="false">
+                    <a class="sidebar-link" href="/role" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
