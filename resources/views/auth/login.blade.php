@@ -25,7 +25,7 @@
                                 </div>
 
                                 <!-- Form Login -->
-                                <form method="POST">
+                                <form method="POST" action="{{ route('login') }}">
                                     @csrf
 
                                     <!-- Username / Email -->
@@ -44,13 +44,6 @@
 
                                     <!-- Remember Me & Forgot Password -->
                                     <div class="d-flex align-items-center justify-content-between mb-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                                {{ old('remember') ? 'checked' : '' }}>
-                                            <label class="form-check-label text-dark" for="remember">
-                                                Ingat saya
-                                            </label>
-                                        </div>
                                         @if (Route::has('password.request'))
                                             <a class="text-primary fw-medium" href="{{ route('password.request') }}">
                                                 Lupa Password?
