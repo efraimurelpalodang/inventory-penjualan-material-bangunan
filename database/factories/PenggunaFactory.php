@@ -29,7 +29,7 @@ class PenggunaFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'nama_pengguna' => $this->faker->name(),
             'jk' => $this->faker->randomElement(['L', 'P']),
-            'telp' => $this->faker->phoneNumber(),
+            'telp' => '08' . mt_rand(100000000, 999999999),
         ];
     }
 }

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <x-table.main 
-        title="Barang" 
+        title="Pengguna" 
         :headers="['Username', 'Nama Pengguna','Peran', 'Handphone', 'Aksi']" 
-        :routeCreate="route('barang.create')"
+        :routeCreate="route('pengguna.create')"
     >
         @foreach ($pengguna as $row)
             <x-table.row :rowData="$row" />
